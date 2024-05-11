@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>597</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FDF - Found duplicate files</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background: #2C0E4E;
+color: white;
+font-weight: bold;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>721</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="3" column="0" rowspan="2" colspan="5">
+      <widget class="QTableView" name="tableView"/>
+     </item>
+     <item row="1" column="1" colspan="3">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QCheckBox" name="checkBox_2">
+         <property name="text">
+          <string>Accurate</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout_2">
+         <item>
+          <widget class="QCheckBox" name="checkBox_3">
+           <property name="text">
+            <string>Soft</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_4">
+           <property name="text">
+            <string>By name</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_5">
+           <property name="text">
+            <string>By size</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="1" colspan="3">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QCheckBox" name="checkBox">
+         <property name="text">
+          <string>Include subdirectories</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border-radius: 8px;
+height: 30px;
+background-color: #6627A9;
+font-size: 14px;</string>
+         </property>
+         <property name="text">
+          <string>Open dialog</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="1" colspan="3">
+      <widget class="QPushButton" name="pushButton">
+       <property name="maximumSize">
+        <size>
+         <width>729</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 8px;
+height: 50px;
+background-color: #6627A9;
+font-size: 16px;
+</string>
+       </property>
+       <property name="text">
+        <string>Search duplicates</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
