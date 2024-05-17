@@ -1,6 +1,6 @@
 import os
 import hashlib
-from backend.common import Singleton
+from backend.common import AbortController, Singleton
 from backend.fileInfo import FileInfo, ExtendedFileInfo
 from backend.logger import ProgressLogger
 from PyQt6.QtCore import pyqtSignal, QObject
@@ -13,18 +13,13 @@ class DuplicateFinder(Singleton, QObject):
     super().__init__()
     self.open_files_logger = ProgressLogger()
     self.search_duplicates_logger = ProgressLogger()
+    self.abort_controller = AbortController()
 
     self.files = []
     self.sub_directories = []
     self.duplicate_files = []
+
   
-    self.aborted = False
-  
-  def abort(self):
-    self.aborted = True
-    
-  def clear_abort(self):
-    self.aborted = False
   
   def _set_log_open_files(self, message):
     self.open_files_logger.set_log(message)
@@ -84,7 +79,7 @@ class DuplicateFinder(Singleton, QObject):
       return files, sub_directories
     
     for f in f_list_paths:
-      if self.aborted:
+      if self.abort_controller.aborted:
         self._set_log_open_files('Opening has been interrupted')
         return [[],[]]
 
@@ -115,7 +110,7 @@ class DuplicateFinder(Singleton, QObject):
       assumed = files[0]
 
     for i, f in enumerate(files):
-      if self.aborted:
+      if self.abort_controller.aborted:
         break
       if(i == 0):
           continue
@@ -141,7 +136,7 @@ class DuplicateFinder(Singleton, QObject):
         hash_func = hashlib.md5()
     
     with open(file.path, 'rb') as file:
-        while True and not self.aborted:
+        while True and not self.abort_controller.aborted:
           data = file.read(4096)
           if not data:
               break
@@ -211,7 +206,7 @@ class DuplicateFinder(Singleton, QObject):
       return 0
       
     for f in f_list_paths:
-      if self.aborted:
+      if self.abort_controller.aborted:
         return 0
       file_path = os.path.join(path, f)
       normalized_path = os.path.normpath(file_path)

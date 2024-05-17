@@ -1,11 +1,9 @@
-import threading
 from PyQt6.QtCore import pyqtSignal, QObject
-
-from backend.common import Singleton
 
 
 class Logger:
     def __init__(self):
+      self.is_Develop = False
       self.log = ''
 
     def log_message(self, message):
@@ -17,19 +15,9 @@ class Logger:
     def clear(self):
         self.log = ''
         
-    def print_log(self):
+    def _print_log(self):
         print(self.log)
     
-    
-
-class DevLogger(Singleton, Logger):
-  def __init__(self, isDev = True):
-    super().__init__()
-    self.isDev = isDev
-    
-  def print_log(self, message):
-    if self.isDev:
-      print(message)
     
 
 class ProgressLogger(QObject, Logger):
@@ -58,4 +46,6 @@ class ProgressLogger(QObject, Logger):
       return self.log
     
     def set_log(self, message):
-      self.log = message
+      if(self.is_Develop):
+        self._print_log()
+        self.log = message

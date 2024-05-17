@@ -1,3 +1,6 @@
+import subprocess
+
+
 class FileInfo:
     def __init__(self, name, path, size):
         self.name = name
@@ -12,6 +15,16 @@ class FileInfo:
     
     def size(self):
         return self.size
+    
+    def open_file_folder(self):
+        subprocess.Popen(f'explorer /select, {self.path}')
+        
+    def open_file(self):
+        subprocess.Popen(f'explorer {self.path}')
+    
+    def delete_file(self):
+        subprocess.Popen(f'del {self.path}')
+
 
 class ExtendedFileInfo(FileInfo):
     def __init__(self, fileInfo, hash):

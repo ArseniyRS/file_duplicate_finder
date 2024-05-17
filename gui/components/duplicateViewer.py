@@ -75,14 +75,14 @@ class DuplicateViewer(QWidget):
     
     def call_action(action):
       for row in selected_rows:
-        path = self.files[row].path
+        file = self.files[row]
         if action == 'open':
-          subprocess.Popen(f'explorer "{path}"')
+          file.open_file()
         if action == 'open_folder':
-          subprocess.Popen(f'explorer /select,"{path}"')
+          file.open_file_folder()
         if action == 'delete':
           try:
-            subprocess.run(['del', path], check=True)
+            file.delete_file()
           except:
             pass
       

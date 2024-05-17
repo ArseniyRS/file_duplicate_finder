@@ -31,7 +31,7 @@ class DuplicateSearcher(QWidget):
 
   def search_start(self):
     self.button.setDisabled(True)
-    duplicate_finder.clear_abort()
+    duplicate_finder.abort_controller.clear_abort()
     self.progress.show()
     self.parent.is_search_finished.emit(False)
   

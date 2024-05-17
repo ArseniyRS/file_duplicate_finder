@@ -26,7 +26,7 @@ class FilesOpener(QWidget):
     
   
   def on_open_folder(self):
-    duplicate_finder.abort()
+    duplicate_finder.abort_controller.abort()
     self.directory = QFileDialog.getExistingDirectory(self, 'Open folder')
 
     if not self.directory:
@@ -34,7 +34,7 @@ class FilesOpener(QWidget):
       self.directory_label.setText(f'Directory not selected')
       self.progress.hide()
       return
-    duplicate_finder.clear_abort()
+    duplicate_finder.abort_controller.clear_abort()
     self.progress.show()
     
     def open_folder_thread():
