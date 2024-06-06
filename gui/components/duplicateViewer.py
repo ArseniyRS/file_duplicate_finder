@@ -41,8 +41,9 @@ class DuplicateViewer(QWidget):
 
 
   def duplicate_files_changed(self, value):
-    self.files = duplicate_finder.duplicate_files
-    self.set_table_model()
+    if value:
+      self.files = duplicate_finder.duplicate_files
+      self.set_table_model()
   
   def set_table_model(self):
     column_names = ['Name', 'Path', 'Size']
@@ -66,7 +67,7 @@ class DuplicateViewer(QWidget):
     print(row, path)
     subprocess.Popen(f'explorer "{path}"')
 
-  def create_contenxt_menu(self, pos):
+  def create_context_menu(self, pos):
     selected_model = self.table_view.selectionModel()
     if not selected_model or not selected_model.hasSelection():
       return
@@ -100,7 +101,7 @@ class DuplicateViewer(QWidget):
     #self.table_view.horizontalHeader().setDefaultAlignment(Qt.AlignmentFlag.AlignLeft)
 
     self.table_view.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
-    self.table_view.customContextMenuRequested.connect(self.create_contenxt_menu)
+    self.table_view.customContextMenuRequested.connect(self.create_context_menu)
     
     self.table_view.doubleClicked.connect(lambda index: self.on_click_row(index))
     

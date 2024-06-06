@@ -34,15 +34,17 @@ class FilesOpener(QWidget):
       self.directory_label.setText(f'Directory not selected')
       self.progress.hide()
       return
+    
+    self.parent.is_open_files.emit(True)
     duplicate_finder.abort_controller.clear_abort()
     self.progress.show()
     
     def open_folder_thread():
-      self.parent.is_open_files.emit(True)
       selected_directory_message = f'Selected directory: {self.directory}'
       self.directory_label.setText(selected_directory_message)
       duplicate_finder.get_file_list_by_path(self.directory, self.include_subfolders.isChecked())
       self.progress.hide()
+      self.parent.is_open_files.emit(False)
       
     
     thread = threading.Thread(target=open_folder_thread)
