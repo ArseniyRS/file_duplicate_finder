@@ -1,6 +1,6 @@
 
-from PyQt6.QtWidgets import QWidget, QPushButton, QVBoxLayout, QCheckBox,QLabel, QHBoxLayout
-from PyQt6.QtCore import pyqtSignal
+from PySide6.QtWidgets import QWidget, QPushButton, QVBoxLayout, QCheckBox,QLabel, QHBoxLayout
+from PySide6.QtCore import Signal
 import time
 from backend.main import duplicate_finder
 

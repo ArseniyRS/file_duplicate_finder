@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QWidget, QProgressBar, QVBoxLayout, QLabel
+from PySide6.QtWidgets import QWidget, QProgressBar, QVBoxLayout, QLabel
 
 class ProgressBar(QWidget):
     def __init__(self, parent=None):

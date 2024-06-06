@@ -1,4 +1,4 @@
-from PyQt6.QtCore import pyqtSignal, QObject
+from PySide6.QtCore import Signal, QObject
 
 
 class Logger:
@@ -21,9 +21,9 @@ class Logger:
     
 
 class ProgressLogger(QObject, Logger):
-    log_signal = pyqtSignal(str)
-    total_signal = pyqtSignal(int)
-    progress_signal = pyqtSignal(int)
+    log_signal = Signal(str)
+    total_signal = Signal(int)
+    progress_signal = Signal(int)
     
     def __init__(self):
         super().__init__()

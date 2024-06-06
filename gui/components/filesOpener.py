@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QPushButton, QWidget, QFileDialog, QCheckBox, QVBoxLayout, QHBoxLayout, QLabel
+from PySide6.QtWidgets import QPushButton, QWidget, QFileDialog, QCheckBox, QVBoxLayout, QHBoxLayout, QLabel
 from backend.main import duplicate_finder
 from gui.components.searchProgress import ProgressBar
 import time

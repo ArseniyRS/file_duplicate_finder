@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QWidget, QVBoxLayout, QTableView, QMenu, QHeaderView
-from PyQt6.QtCore import Qt, QAbstractTableModel, QSortFilterProxyModel
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QTableView, QMenu, QHeaderView
+from PySide6.QtCore import Qt, QAbstractTableModel, QSortFilterProxyModel
 import subprocess
 from backend.main import duplicate_finder
 
@@ -49,6 +49,7 @@ class DuplicateViewer(QWidget):
     column_values = []
 
     for file in self.files:
+      print(file.name, file.path, file.size)
       column_values.append([file.name, file.path, file.size])
     
     model = TableModel({

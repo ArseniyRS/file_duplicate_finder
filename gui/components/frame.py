@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QPushButton, QWidget, QFileDialog, QCheckBox, QVBoxLayout, QGridLayout
-from PyQt6.QtCore import pyqtSignal
+from PySide6.QtWidgets import QPushButton, QWidget, QFileDialog, QCheckBox, QVBoxLayout, QGridLayout
+from PySide6.QtCore import Signal
 
 from gui.components.duplicateViewer import DuplicateViewer
 from gui.components.filesOpener import FilesOpener
@@ -8,8 +8,8 @@ from gui.components.duplicateSearcher import DuplicateSearcher
 
 
 class Frame(QWidget):
-  is_open_files = pyqtSignal(bool)
-  is_search_finished = pyqtSignal(bool)
+  is_open_files = Signal(bool)
+  is_search_finished = Signal(bool)
   
   def __init__(self, parent='None'):
     super().__init__(parent)

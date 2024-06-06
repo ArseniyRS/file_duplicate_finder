@@ -3,7 +3,7 @@ import hashlib
 from backend.common import AbortController, Singleton
 from backend.fileInfo import FileInfo, ExtendedFileInfo
 from backend.logger import ProgressLogger
-from PyQt6.QtCore import pyqtSignal, QObject
+from PySide6.QtCore import Signal, QObject
 
 default_path = os.path.join(os.getcwd(), '')
 

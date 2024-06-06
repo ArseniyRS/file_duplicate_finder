@@ -1,8 +1,8 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QGridLayout
+from PySide6.QtWidgets import QApplication, QWidget, QGridLayout
 from gui.components.frame import Frame
 
-from PyQt6.QtGui import QIcon
+from PySide6.QtGui import QIcon
 from qt_material import apply_stylesheet
 
 class MainWindow(QWidget):
