@@ -41,7 +41,7 @@ class DuplicateSearcher(QWidget):
     self.parent.is_search_finished.emit(True)
   
   def is_open_files_changed(self, is_open_files):
-    self.button.setDisabled(not is_open_files)
+    self.button.setDisabled(is_open_files)
 
   def search_duplicates(self):
     with_hash = self.with_hash.isChecked()
