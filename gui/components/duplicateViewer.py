@@ -4,29 +4,29 @@ import subprocess
 from backend.main import duplicate_finder
 
 class TableModel(QAbstractTableModel):
-  def __init__(self, data):
+  def __init__(self, table_data):
     super(TableModel, self).__init__()
-    self.data = data
+    self.table_data = table_data
   
   def rowCount(self, index):
-    return len(self.data['cells'])
+    return len(self.table_data['cells'])
   
   def columnCount(self, index):
-    if len(self.data['cells']) == 0:
+    if len(self.table_data['cells']) == 0:
       return 0
-    return len(self.data['cells'][0])
+    return len(self.table_data['cells'][0])
   
   def data(self, index, role = Qt.ItemDataRole.DisplayRole):
     if role == Qt.ItemDataRole.DisplayRole:
-      return self.data['cells'][index.row()][index.column()]
+      return self.table_data['cells'][index.row()][index.column()]
     return None
   
   def headerData(self, section, orientation, role):
     if role == Qt.ItemDataRole.DisplayRole:
       if orientation == Qt.Orientation.Horizontal:
-        return str(self.data['columns'][section])
-      if orientation == Qt.Orientation.Vertical and 'index' in self.data and  section < len(self.data['index']):
-        return str(self.data['index'][section])
+        return str(self.table_data['columns'][section])
+      if orientation == Qt.Orientation.Vertical and 'index' in self.table_data and  section < len(self.table_data['index']):
+        return str(self.table_data['index'][section])
     return None
   
 
