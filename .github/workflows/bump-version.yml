@@ -25,7 +25,7 @@ jobs:
 
     - name: Bump version
       run: |
-        bump2version --bump patch
+        bump2version patch
 
     - name: Push changes
       env:
