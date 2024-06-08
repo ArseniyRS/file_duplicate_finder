@@ -26,6 +26,8 @@ jobs:
     - name: Bump version
       run: |
         bump-my-version bump dev_patch
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Push changes
       env:
