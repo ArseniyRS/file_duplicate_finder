@@ -18,14 +18,14 @@ jobs:
       with:
         python-version: 3.x
 
-    - name: Install bump2version
+    - name: Install bump-my-version
       run: |
         python -m pip install --upgrade pip
-        pip install bump2version
+        pip install bump-my-version
 
     - name: Bump version
       run: |
-        bump2version patch
+        bump-my-version bump dev_patch
 
     - name: Push changes
       env:
