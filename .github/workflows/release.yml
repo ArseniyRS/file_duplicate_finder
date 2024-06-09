@@ -25,7 +25,7 @@ jobs:
     
     - name: Build
       run: |
-        pyinstaller build.spec
+        pyinstaller -F -n FDF -i ./assets/duplicate.ico main.py
     - uses: actions/upload-artifact@v2
       with:
         name: release
