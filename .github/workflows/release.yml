@@ -35,7 +35,7 @@ jobs:
     - name: Read version from .bumpversion.toml
       id: read_version
       run: |
-        VERSION=$(grep -oP '(?<=^current_version\s*=\s*")[^"]+' .bumpversion.toml)
+        VERSION=$(sed -n 's/^current_version *= *"\(.*\)"/\1/p' .bumpversion.toml)
         echo "VERSION=$VERSION" >> $GITHUB_ENV
 
     - name: Create Release
