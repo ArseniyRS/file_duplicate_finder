@@ -29,7 +29,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: release
-        path: ./dist/FDF.exe
+        path: dist/FDF.exe
 
 
     - name: Read version from .bumpversion.toml
@@ -61,7 +61,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./dist/FDF.exe
+        asset_path: dist/FDF.exe
         asset_name: FDF.exe
         asset_content_type: application/octet-stream
     
