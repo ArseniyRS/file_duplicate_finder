@@ -25,11 +25,11 @@ jobs:
     
     - name: Build
       run: |
-        pyinstaller FDF.spec
+        pyinstaller ./FDF.spec
     - uses: actions/upload-artifact@v2
       with:
         name: release
-        path: dist/FDF.exe
+        path: ./dist/FDF.exe
 
 
     - name: Read version from .bumpversion.toml
