@@ -54,6 +54,9 @@ jobs:
 
     - name: List root directory for debugging
       run: ls -la
+      
+    - name: List root directory for debugging2
+      run: ls -la dist
 
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
