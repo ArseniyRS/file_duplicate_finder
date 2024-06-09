@@ -25,7 +25,7 @@ jobs:
     
     - name: Build
       run: |
-        pyinstaller ./FDF.spec
+        pyinstaller build.spec
     - uses: actions/upload-artifact@v2
       with:
         name: release
